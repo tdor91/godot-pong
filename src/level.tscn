@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://csqhwvadcwrt6"]
+
+[ext_resource type="PackedScene" uid="uid://bsdipq6yoedqo" path="res://paddle.tscn" id="1_6aw4k"]
+[ext_resource type="PackedScene" uid="uid://dq1lrjfgoavkw" path="res://wall.tscn" id="1_duoc1"]
+[ext_resource type="Texture2D" uid="uid://do8e8p7acnr3p" path="res://images/middle-stroke.png" id="1_pajhs"]
+[ext_resource type="PackedScene" uid="uid://ccvxtxkdun0qg" path="res://ball.tscn" id="2_2wghh"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Background" type="Node" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+texture_repeat = 2
+scale = Vector2(1, 1.01215)
+texture = ExtResource("1_pajhs")
+offset = Vector2(640, 400)
+region_enabled = true
+region_rect = Rect2(0, 0, 10, 780)
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="WallTop" parent="Walls" instance=ExtResource("1_duoc1")]
+position = Vector2(640, 10)
+scale = Vector2(130, 1)
+
+[node name="WallBottom" parent="Walls" instance=ExtResource("1_duoc1")]
+position = Vector2(640, 790)
+scale = Vector2(130, 1)
+
+[node name="Players" type="Node" parent="."]
+
+[node name="PaddleLeft" parent="Players" instance=ExtResource("1_6aw4k")]
+position = Vector2(60, 400)
+UpKey = 87
+DownKey = 83
+
+[node name="PaddleRight" parent="Players" instance=ExtResource("1_6aw4k")]
+position = Vector2(1220, 400)
+rotation = 3.14159
+UpKey = 4194320
+DownKey = 4194322
+
+[node name="Ball" parent="." instance=ExtResource("2_2wghh")]
+position = Vector2(104, 403)

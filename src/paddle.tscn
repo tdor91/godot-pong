@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsdipq6yoedqo"]
+
+[ext_resource type="Script" path="res://paddle.cs" id="1_im6k2"]
+[ext_resource type="Texture2D" uid="uid://d1ctwfsytbj3k" path="res://images/paddle.png" id="1_tw67p"]
+
+[node name="Paddle" type="RigidBody2D"]
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_im6k2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tw67p")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -51, 3, -37, 5, -15, 5, 0, 5, 15, 3, 37, 0, 51, -5, 51, -5, -51)
